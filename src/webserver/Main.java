@@ -98,6 +98,14 @@ public class Main {
                     dataOutputStream.writeBytes("\n");
                 }
 
+                // TELNET EASY ACCESS
+                //l
+
+                // TELNET localhost 1337
+                // GET /index.html HTTP/1.1
+                // Host: localhost
+                //
+
 
 
             }
