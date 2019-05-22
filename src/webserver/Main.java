@@ -42,9 +42,10 @@ public class Main {
     private static void serviceTheClient(Socket socket) {
         try {
             Scanner fraClient = new Scanner(socket.getInputStream());
-            System.out.println("fra client: ");
+
 
             String fraClientString = fraClient.nextLine();
+            System.out.println("fra client string : "+fraClientString);
 
             StringTokenizer st = new StringTokenizer(fraClientString);
 
@@ -85,9 +86,14 @@ public class Main {
                     fileInputStream.read(byteArr);
                     fileInputStream.close();
 
+
+                    // HER ER HTTP HEADER
                     dataOutputStream.writeBytes("HTTP:/1.0 200 her kommer index\r\n");
                     dataOutputStream.writeBytes("Content-length: "+length+"\r\n");
                     dataOutputStream.writeBytes("\r\n");
+
+                    // HER ER HTTP "RESOURCE"
+                    //"byteArr" indeholder index.html i byte format
                     dataOutputStream.write(byteArr,0,length);
                     dataOutputStream.writeBytes("\n");
                 }
